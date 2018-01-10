@@ -412,7 +412,7 @@ namespace SharpVectors.Runtime
                 return;
             }
 
-            string itemName = visual.GetValue(FrameworkElement.NameProperty) as string;
+            string itemName = SvgObject.GetName(visual);
             if (itemName == null)
             {
                 if (_tooltip != null)
@@ -597,7 +597,7 @@ namespace SharpVectors.Runtime
                 return;
             }
 
-            string itemName = _hitVisual.GetValue(FrameworkElement.NameProperty) as string;
+            string itemName = SvgObject.GetName(_hitVisual);
             if (itemName == null)
             {
                 _hitVisual = null;
@@ -902,9 +902,9 @@ namespace SharpVectors.Runtime
             Drawing foundDrawing = null;
 
             //for (int i = 0; i < _linkObjects.Count; i++)
-            for (int i = _linkObjects.Count - 1; i >= 0; i--)
+            for (int i = _drawObjects.Count - 1; i >= 0; i--)
             {
-                Drawing drawing = _linkObjects[i];
+                Drawing drawing = _drawObjects[i];
                 if (TryCast.Cast(drawing, out geometryDrawing))
                 {
                     if (HitTestDrawing(geometryDrawing, ptDisplay))

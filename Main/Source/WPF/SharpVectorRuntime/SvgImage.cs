@@ -53,8 +53,8 @@ namespace SharpVectors.Runtime
             DependencyObject namedObject = scopedElement as DependencyObject;
 
             if (namedObject != null)
-            {   
-                namedObject.SetValue(FrameworkElement.NameProperty, name);
+            {
+                SvgObject.SetName(namedObject, name);
             }
         }
 

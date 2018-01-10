@@ -425,7 +425,7 @@ namespace SharpVectors.Converters
             DependencyObject dep = obj as DependencyObject;
             if (dep != null)
             {
-                string nameValue = dep.GetValue(FrameworkElement.NameProperty) as string;
+                string nameValue = SvgObject.GetName(dep);
                 if (!String.IsNullOrEmpty(nameValue) && !(dep is FrameworkElement))
                 {
                     writer.WriteAttributeString("x", "Name", NamespaceCache.XamlNamespace, nameValue);

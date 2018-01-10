@@ -96,7 +96,7 @@ namespace SharpVectors.Renderers.Wpf
                 elementId = "Caption";
             }
             int numberId = 0;
-            if (Int32.TryParse(elementId, out numberId))
+            if (!Int32.TryParse(elementId, out numberId))
             {
                 return String.Empty;
             }
