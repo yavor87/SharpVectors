@@ -6,4 +6,8 @@
     <AssemblyOriginatorKeyFile>SharpVectors.Core.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\..\Output\</OutputPath>
+  </PropertyGroup>
+
 </Project>

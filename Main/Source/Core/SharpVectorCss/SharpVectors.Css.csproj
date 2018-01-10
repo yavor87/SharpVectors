@@ -6,6 +6,10 @@
     <AssemblyOriginatorKeyFile>SharpVectors.Css.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\..\Output\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\SharpVectorCore\SharpVectors.Core.csproj" />
     <ProjectReference Include="..\SharpVectorDom\SharpVectors.Dom.csproj" />
