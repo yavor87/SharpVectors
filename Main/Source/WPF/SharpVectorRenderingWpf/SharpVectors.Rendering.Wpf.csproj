@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E8056611-E49C-4BC3-A682-A629D5CEC11C}</ProjectGuid>
+    <ProjectGuid>{A2576CE0-E492-490F-97E9-C0E7ABAFAF27}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharpVectors.Converters</RootNamespace>
-    <AssemblyName>SharpVectors.Converters</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>SharpVectors.Renderers</RootNamespace>
+    <AssemblyName>SharpVectors.Rendering.Wpf</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -19,12 +19,13 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>SharpVectors.Converters.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>SharpVectors.Rendering.Wpf.snk</AssemblyOriginatorKeyFile>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -50,6 +51,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -59,6 +61,20 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Documentation|AnyCPU' ">
+    <OutputPath>..\..\Output\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <DocumentationFile>..\..\Output\SharpVectors.Rendering.Wpf.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -66,7 +82,6 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
@@ -74,12 +89,21 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ImageEncoderType.cs" />
-    <Compile Include="StreamSvgConverter.cs" />
-    <Compile Include="Utils\DirectoryCopier.cs" />
-    <Compile Include="Utils\DirectoryUtils.cs" />
-    <Compile Include="FileSvgConverter.cs" />
-    <Compile Include="ImageSvgConverter.cs" />
+    <Compile Include="Texts\WpfHorzTextRenderer.cs" />
+    <Compile Include="Texts\WpfPathTextRenderer.cs" />
+    <Compile Include="Texts\WpfTextAnchor.cs" />
+    <Compile Include="Texts\WpfTextOnPathBase.cs" />
+    <Compile Include="Texts\WpfTextOnPathDrawing.cs" />
+    <Compile Include="Texts\WpfTextPlacement.cs" />
+    <Compile Include="Texts\WpfTextPosition.cs" />
+    <Compile Include="Texts\WpfTextRenderer.cs" />
+    <Compile Include="Texts\WpfTextRun.cs" />
+    <Compile Include="Texts\WpfTextStringFormat.cs" />
+    <Compile Include="Texts\WpfVertTextRenderer.cs" />
+    <Compile Include="Utils\WpfApplicationContext.cs" />
+    <Compile Include="Utils\WpfCacheManager.cs" />
+    <Compile Include="Utils\WpfSvgWindow.cs" />
+    <Compile Include="Utils\WpfConvert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,55 +117,61 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="DirectorySvgConverter.cs" />
-    <Compile Include="EmbeddedImageVisitor.cs" />
-    <Compile Include="FileSvgReader.cs" />
-    <Compile Include="FontFamilyVisitor.cs" />
-    <Compile Include="LinkVisitor.cs" />
-    <Compile Include="SvgCanvas.cs" />
-    <Compile Include="SvgConverter.cs" />
-    <Compile Include="SvgImageExtension.cs" />
-    <Compile Include="SvgViewbox.cs" />
-    <Compile Include="XmlXamlWriter.cs" />
+    <Compile Include="Utils\SvgConvert.cs" />
+    <Compile Include="Wpf\WpfARendering.cs" />
+    <Compile Include="Wpf\WpfDrawingContext.cs" />
+    <Compile Include="Wpf\WpfDrawingSettings.cs" />
+    <Compile Include="Wpf\WpfEmbeddedImageVisitor.cs" />
+    <Compile Include="Wpf\WpfFontFamilyInfo.cs" />
+    <Compile Include="Wpf\WpfFontFamilyVisitor.cs" />
+    <Compile Include="Wpf\WpfGroupRendering.cs" />
+    <Compile Include="Wpf\WpfLinkVisitor.cs" />
+    <Compile Include="Wpf\WpfSvgPaint.cs" />
+    <Compile Include="Wpf\WpfSvgColor.cs" />
+    <Compile Include="Wpf\WpfDrawingRenderer.cs" />
+    <Compile Include="Wpf\WpfSvgRendering.cs" />
+    <Compile Include="Wpf\WpfFill.cs" />
+    <Compile Include="Wpf\WpfGradientFill.cs" />
+    <Compile Include="Wpf\WpfImageRendering.cs" />
+    <Compile Include="Wpf\WpfMarkerRendering.cs" />
+    <Compile Include="Wpf\WpfPathRendering.cs" />
+    <Compile Include="Wpf\WpfPatternFill.cs" />
+    <Compile Include="Wpf\WpfRendering.cs" />
+    <Compile Include="Wpf\WpfRenderingBase.cs" />
+    <Compile Include="Wpf\WpfRenderingHelper.cs" />
+    <Compile Include="Wpf\WpfSwitchRendering.cs" />
+    <Compile Include="Wpf\WpfTextRendering.cs" />
+    <Compile Include="Wpf\WpfUseRendering.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Drawings\Controls.cd" />
-    <None Include="Drawings\Converters.cd" />
-    <None Include="Drawings\Others.cd" />
+    <None Include="Diagrams\Others.cd" />
+    <None Include="Diagrams\Rendering.cd" />
+    <None Include="Diagrams\Texts.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="SharpVectors.Converters.snk" />
+    <None Include="SharpVectors.Rendering.Wpf.snk" />
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpVectorCore\SharpVectors.Core.csproj">
-      <Project>{D6BB65FC-240E-4241-B2ED-A7FB3F13E978}</Project>
+    <ProjectReference Include="..\..\Core\SharpVectorCore\SharpVectors.Core.csproj">
+      <Project>{f8d5dcbc-5a87-42d9-829c-a5285a211d2d}</Project>
       <Name>SharpVectors.Core</Name>
-      <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\SharpVectorCss\SharpVectors.Css.csproj">
-      <Project>{351B0A6E-2F6B-497A-844B-DCB5A502FB0D}</Project>
+    <ProjectReference Include="..\..\Core\SharpVectorCss\SharpVectors.Css.csproj">
+      <Project>{324b3349-29b6-4ccf-80de-a8afcb94b930}</Project>
       <Name>SharpVectors.Css</Name>
-      <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\SharpVectorDom\SharpVectors.Dom.csproj">
-      <Project>{FE34CBC0-D23C-4A95-BA64-83A031814010}</Project>
+    <ProjectReference Include="..\..\Core\SharpVectorDom\SharpVectors.Dom.csproj">
+      <Project>{02dce84b-4791-41e1-8441-b5052c262f63}</Project>
       <Name>SharpVectors.Dom</Name>
-      <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\SharpVectorModel\SharpVectors.Model.csproj">
-      <Project>{5D336F48-3FB9-4382-B4B9-06974C764007}</Project>
+    <ProjectReference Include="..\..\Core\SharpVectorModel\SharpVectors.Model.csproj">
+      <Project>{b519a810-ddd9-4a12-bdbd-9abc13d0df95}</Project>
       <Name>SharpVectors.Model</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\SharpVectorRenderingWpf\SharpVectors.Rendering.Wpf.csproj">
-      <Project>{A2576CE0-E492-490F-97E9-C0E7ABAFAF27}</Project>
-      <Name>SharpVectors.Rendering.Wpf</Name>
-      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\SharpVectorRuntime\SharpVectors.Runtime.csproj">
       <Project>{2CD52982-A1C2-4A14-9D69-D64719357216}</Project>

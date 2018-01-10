@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TestSvgControl</RootNamespace>
     <AssemblyName>TestSvgControl</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>
     </StartupObject>
@@ -22,7 +22,8 @@
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -48,6 +49,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -57,6 +59,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Documentation|AnyCPU' ">
     <OutputPath>Output\</OutputPath>
@@ -69,6 +72,7 @@
     <ErrorReport>prompt</ErrorReport>
     <DocumentationFile>..\SharpVectorGraphics\Output\TestSvgControl.xml</DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -112,28 +116,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\SharpVectorCore\SharpVectors.Core.csproj">
-      <Project>{D6BB65FC-240E-4241-B2ED-A7FB3F13E978}</Project>
-      <Name>SharpVectors.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Source\SharpVectorCss\SharpVectors.Css.csproj">
-      <Project>{351B0A6E-2F6B-497A-844B-DCB5A502FB0D}</Project>
-      <Name>SharpVectors.Css</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Source\SharpVectorDom\SharpVectors.Dom.csproj">
-      <Project>{FE34CBC0-D23C-4A95-BA64-83A031814010}</Project>
-      <Name>SharpVectors.Dom</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Source\SharpVectorModel\SharpVectors.Model.csproj">
-      <Project>{5D336F48-3FB9-4382-B4B9-06974C764007}</Project>
-      <Name>SharpVectors.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Source\SharpVectorRenderingGdi\SharpVectors.Rendering.Gdi.csproj">
-      <Project>{0AD99D97-24ED-484D-9430-9905811F8A4F}</Project>
-      <Name>SharpVectors.Rendering.Gdi</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -149,6 +131,28 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\Core\SharpVectorCore\SharpVectors.Core.csproj">
+      <Project>{f8d5dcbc-5a87-42d9-829c-a5285a211d2d}</Project>
+      <Name>SharpVectors.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Core\SharpVectorCss\SharpVectors.Css.csproj">
+      <Project>{324b3349-29b6-4ccf-80de-a8afcb94b930}</Project>
+      <Name>SharpVectors.Css</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Core\SharpVectorDom\SharpVectors.Dom.csproj">
+      <Project>{02dce84b-4791-41e1-8441-b5052c262f63}</Project>
+      <Name>SharpVectors.Dom</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Core\SharpVectorModel\SharpVectors.Model.csproj">
+      <Project>{b519a810-ddd9-4a12-bdbd-9abc13d0df95}</Project>
+      <Name>SharpVectors.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\WinForms\SharpVectorRenderingGdi\SharpVectors.Rendering.Gdi.csproj">
+      <Project>{0ad99d97-24ed-484d-9430-9905811f8a4f}</Project>
+      <Name>SharpVectors.Rendering.Gdi</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
