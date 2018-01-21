@@ -112,6 +112,22 @@ namespace SharpVectors.Dom.Svg
             }
         }
 
+        public void Accept(IElementVisitor visitor)
+        {
+            visitor.Visit(this);
+
+            if (this.HasChildNodes)
+            {
+                foreach (var item in this.ChildNodes)
+                {
+                    if (item is IElementVisitorTarget evt)
+                    {
+                        evt.Accept(visitor);
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region ISvgURIReference Members

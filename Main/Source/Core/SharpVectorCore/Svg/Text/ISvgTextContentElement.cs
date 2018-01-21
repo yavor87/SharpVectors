@@ -10,7 +10,7 @@ namespace SharpVectors.Dom.Svg
 	/// </summary>
 	public interface ISvgTextContentElement	: ISvgElement, ISvgTests, ISvgLangSpace,
 				ISvgExternalResourcesRequired, ISvgStylable, IEventTarget
-	{
+    {
 		ISvgAnimatedLength TextLength{get;}
 		ISvgAnimatedEnumeration LengthAdjust{get;}
 		long GetNumberOfChars();

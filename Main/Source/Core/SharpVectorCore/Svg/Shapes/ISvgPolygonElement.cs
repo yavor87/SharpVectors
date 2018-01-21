@@ -15,8 +15,9 @@ namespace SharpVectors.Dom.Svg
 		ISvgStylable,
 		ISvgTransformable,
 		ISvgAnimatedPoints,
-    IEventTarget
-  {
+        IEventTarget,
+        IElementVisitorTarget
+    {
 
 	}
 }

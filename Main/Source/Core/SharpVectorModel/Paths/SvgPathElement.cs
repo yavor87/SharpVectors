@@ -197,6 +197,11 @@ namespace SharpVectors.Dom.Svg
             return ((SvgPathSegList)PathSegList).GetPathSegAtLength(distance);
         }
 
+        public void Accept(IElementVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
         #region Create methods
 
         public ISvgPathSegClosePath CreateSvgPathSegClosePath()

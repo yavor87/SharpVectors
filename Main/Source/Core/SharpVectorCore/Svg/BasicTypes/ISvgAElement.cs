@@ -5,12 +5,13 @@ using SharpVectors.Dom.Events;
 
 namespace SharpVectors.Dom.Svg
 {
-	/// <summary>
-	/// </summary>
-	public interface ISvgAElement : ISvgElement, ISvgUriReference, ISvgTests,
+    /// <summary>
+    /// The SvgAElement interface corresponds to the 'a' element. 
+    /// </summary>
+    public interface ISvgAElement : ISvgElement, ISvgUriReference, ISvgTests,
 		ISvgLangSpace, ISvgExternalResourcesRequired, ISvgStylable, 
-        ISvgTransformable, IEventTarget
-	{
+        ISvgTransformable, IEventTarget, IElementVisitorTarget
+    {
 		ISvgAnimatedString Target{get;}
 	}
 }

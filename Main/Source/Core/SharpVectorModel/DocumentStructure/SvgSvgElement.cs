@@ -878,6 +878,22 @@ namespace SharpVectors.Dom.Svg
             return this.GetElementById(elementId);
         }
 
+        public void Accept(IElementVisitor visitor)
+        {
+            visitor.Visit(this);
+
+            if (this.HasChildNodes)
+            {
+                foreach (var item in this.ChildNodes)
+                {
+                    if (item is IElementVisitorTarget evt)
+                    {
+                        evt.Accept(visitor);
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region ISvgFitToViewBox Members

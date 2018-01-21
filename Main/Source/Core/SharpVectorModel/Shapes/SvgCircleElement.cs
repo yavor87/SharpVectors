@@ -91,6 +91,11 @@ namespace SharpVectors.Dom.Svg
             }
         }
 
+        public void Accept(IElementVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
         #endregion
 
         #region ISvgExternalResourcesRequired Members

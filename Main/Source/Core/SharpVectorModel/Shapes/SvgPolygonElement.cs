@@ -35,5 +35,14 @@ namespace SharpVectors.Dom.Svg
         }
 
         #endregion
+
+        #region ISvgRectElement Members
+
+        public void Accept(IElementVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
+        #endregion
     }
 }

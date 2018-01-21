@@ -14,9 +14,9 @@ namespace SharpVectors.Dom.Svg
 		ISvgExternalResourcesRequired,
 		ISvgStylable,
 		ISvgTransformable,
-		IEventTarget
-			
-	{
+		IEventTarget,
+        IElementVisitorTarget
+    {
 		/// <summary>
 		/// Corresponds to attribute x on the given 'rect' element.
 		/// </summary>

@@ -12,5 +12,10 @@ namespace SharpVectors.Dom.Svg
             : base(prefix, localname, ns, doc) 
 		{
 		}
-	}
+
+        public void Accept(IElementVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+    }
 }

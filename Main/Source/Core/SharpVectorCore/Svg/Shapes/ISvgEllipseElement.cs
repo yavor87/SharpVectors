@@ -14,8 +14,9 @@ namespace SharpVectors.Dom.Svg
 		ISvgExternalResourcesRequired,
 		ISvgStylable,
 		ISvgTransformable,
-		IEventTarget
-	{
+		IEventTarget,
+        IElementVisitorTarget
+    {
 
 		ISvgAnimatedLength Cx{get;}
 

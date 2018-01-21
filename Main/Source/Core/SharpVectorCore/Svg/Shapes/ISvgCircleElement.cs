@@ -14,8 +14,9 @@ namespace SharpVectors.Dom.Svg
 		ISvgExternalResourcesRequired,
 		ISvgStylable,
 		ISvgTransformable,
-		IEventTarget
-	{
+		IEventTarget,
+        IElementVisitorTarget
+    {
 		/// <summary>
 		/// Corresponds to attribute cx on the given 'circle' element.
 		/// </summary>
