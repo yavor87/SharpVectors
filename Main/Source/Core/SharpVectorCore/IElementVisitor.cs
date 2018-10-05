@@ -23,11 +23,13 @@ namespace SharpVectors.Dom
         void Visit(Svg.ISvgUseElement element);
 
         // Container elements
+        void BeginContainer(Svg.ISvgElement element);
         void Visit(Svg.ISvgAElement element);
         void Visit(Svg.ISvgGElement element);
         void Visit(Svg.ISvgSvgElement element);
         void Visit(Svg.ISvgSwitchElement element);
         void Visit(Svg.ISvgSymbolElement element);
+        void EndContainer(Svg.ISvgElement element);
 
         // Text content elements
         void Visit(Svg.ISvgTextElement element);

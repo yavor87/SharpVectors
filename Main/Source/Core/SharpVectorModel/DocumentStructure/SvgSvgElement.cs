@@ -884,6 +884,7 @@ namespace SharpVectors.Dom.Svg
 
             if (this.HasChildNodes)
             {
+                visitor.BeginContainer(this);
                 foreach (var item in this.ChildNodes)
                 {
                     if (item is IElementVisitorTarget evt)
@@ -891,6 +892,7 @@ namespace SharpVectors.Dom.Svg
                         evt.Accept(visitor);
                     }
                 }
+                visitor.EndContainer(this);
             }
         }
 
