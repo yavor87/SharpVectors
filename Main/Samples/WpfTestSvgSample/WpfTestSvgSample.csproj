@@ -128,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ShapeDrawingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SvgPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -144,6 +148,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IDrawingPage.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -171,6 +176,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ScaleToPercentConverter.cs" />
+    <Compile Include="ShapeDrawingPage.xaml.cs">
+      <DependentUpon>ShapeDrawingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SvgPage.xaml.cs">
       <DependentUpon>SvgPage.xaml</DependentUpon>
     </Compile>

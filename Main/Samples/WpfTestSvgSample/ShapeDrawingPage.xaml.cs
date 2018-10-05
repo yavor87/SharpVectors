@@ -15,9 +15,9 @@ using SharpVectors.Converters;
 namespace WpfTestSvgSample
 {
     /// <summary>
-    /// Interaction logic for DrawingPage.xaml
+    /// Interaction logic for ShapeDrawingPage.xaml
     /// </summary>
-    public partial class DrawingPage : Page, IDrawingPage
+    public partial class ShapeDrawingPage : Page, IDrawingPage
     {
         #region Private Fields
 
@@ -55,15 +55,15 @@ namespace WpfTestSvgSample
 
         #region Constructors and Destructor
 
-        public DrawingPage()
+        public ShapeDrawingPage()
         {
             InitializeComponent();
 
-            _saveXaml            = true;
-            _wpfSettings         = new WpfDrawingSettings();
+            _saveXaml = true;
+            _wpfSettings = new WpfDrawingSettings();
             _wpfSettings.CultureInfo = _wpfSettings.NeutralCultureInfo;
 
-            _fileReader          = new FileSvgReader(_wpfSettings);
+            _fileReader = new FileSvgReader(_wpfSettings);
             _fileReader.SaveXaml = _saveXaml;
             _fileReader.SaveZaml = false;
 
@@ -83,13 +83,13 @@ namespace WpfTestSvgSample
 
         public string XamlDrawingDir
         {
-            get 
-            { 
-                return _drawingDir; 
+            get
+            {
+                return _drawingDir;
             }
-            set 
-            { 
-                _drawingDir = value; 
+            set
+            {
+                _drawingDir = value;
 
                 if (!String.IsNullOrEmpty(_drawingDir))
                 {
@@ -132,7 +132,7 @@ namespace WpfTestSvgSample
                 workingDir = _directoryInfo;
             }
 
-           //double currentZoom = zoomSlider.Value;
+            //double currentZoom = zoomSlider.Value;
 
             svgViewer.UnloadDiagrams();
 
@@ -143,43 +143,15 @@ namespace WpfTestSvgSample
             if (String.Equals(fileExt, ".svgz", StringComparison.OrdinalIgnoreCase) ||
                 String.Equals(fileExt, ".svg", StringComparison.OrdinalIgnoreCase))
             {
-                if (_fileReader != null)
+                this.svgViewer.Source = svgFilePath;
+
+                Rect bounds = svgViewer.Bounds;
+                if (bounds.IsEmpty)
                 {
-                    _fileReader.SaveXaml = _saveXaml;
-                    _fileReader.SaveZaml = false;
-
-                    DrawingGroup drawing = _fileReader.Read(svgFilePath, workingDir);
-                    if (drawing != null)
-                    {
-                        svgViewer.RenderDiagrams(drawing);
-
-                        //zoomSlider.Value = currentZoom;
-
-                        Rect bounds = svgViewer.Bounds;
-
-                        //Rect rect = new Rect(0, 0,
-                        //    mainFrame.RenderSize.Width, mainFrame.RenderSize.Height);
-                        //Rect rect = new Rect(0, 0,
-                        //    bounds.Width, bounds.Height);
-                        if (bounds.IsEmpty)
-                        {
-                            bounds = new Rect(0, 0, 
-                                canvasScroller.ActualWidth, canvasScroller.ActualHeight);
-                        }
-                        zoomPanControl.AnimatedZoomTo(bounds);
-
-                        return true;
-                    }
+                    bounds = new Rect(0, 0,
+                        canvasScroller.ActualWidth, canvasScroller.ActualHeight);
                 }
-            }
-            else if (String.Equals(fileExt, ".xaml", StringComparison.OrdinalIgnoreCase) ||
-                String.Equals(fileExt, ".zaml", StringComparison.OrdinalIgnoreCase))
-            {
-                svgViewer.LoadDiagrams(svgFilePath);
-
-                //zoomSlider.Value = currentZoom;
-
-                svgViewer.InvalidateMeasure();
+                zoomPanControl.AnimatedZoomTo(bounds);
 
                 return true;
             }
@@ -211,7 +183,7 @@ namespace WpfTestSvgSample
         }
 
         public void PageSelected(bool isSelected)
-        {   
+        {
         }
 
         #endregion
